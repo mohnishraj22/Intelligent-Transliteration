@@ -1,39 +1,50 @@
-import { useState } from 'react'
-import './App.css'
+/* In comments ko koi delete nahi karna 
 
-const reactLogo = "react.svg"
-const viteLogo = "vite.svg"
+// const reactLogo = "react.svg"
+// const viteLogo = "vite.svg"
 
-const reactLogoPath = `static/${reactLogo}`
-const viteLogoPath = `static/${viteLogo}`
+// const reactLogoPath = `static/${reactLogo}`
+// const viteLogoPath = `static/${viteLogo}`
+
+*/
+
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [input, setInput] = useState("");
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogoPath} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogoPath} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Hello World</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="bg-black w-screen h-screen p-8">
+      <div className="grid grid-cols-1 max-w-[600px] mx-auto gap-9 place-items-center">
+        <div>
+          <label htmlFor="areainput"></label>
+          <textarea
+            name="areainput"
+            className="bg-slate-900 w-full text-white p-4 rounded-lg drop-shadow-2xl !outline-none"
+            id=""
+            cols="100"
+            rows="5"
+            placeholder="Enter the text...."
+            onChange={(e) => {
+                setInput(e.target.value)
+                console.log(input)
+            }}
+          ></textarea>
+        </div>
+        <div className="flex gap-4 w-full">
+          <button className="bg-orange-500 p-3 rounded-lg font-bold w-full">
+            Image
+          </button>
+          <button className="bg-orange-500 p-3 rounded-lg font-bold w-full">
+            Audio
+          </button>
+        </div>
+        <button className="bg-orange-500 p-3 rounded-lg font-bold w-full">
+          Submit
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
